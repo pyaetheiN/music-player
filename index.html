@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Player</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  <script defer src="js/script.js"></script>
+</head>
+<body>
+  <header>
+    <h1 class="title">Music Player</h1>
+  </header>
+
+  <div class="music__container">
+
+    <!-- show up when music is played -->
+    <div class="music__info">
+      <span class="music__title">GRAVECHILL - TWILIGHT</span>
+      <div class="music__progress--container">
+        <div class="music__progress"></div>
+      </div>
+    </div>
+
+    <audio src="music/GRAVECHILL - TWILIGHT.mp3" class="music__audio"></audio>
+
+    <div class="music__img--container">
+      <img src="./images/Gravechill-Twilight.jpg" alt="music-cover" class="music__img--cover">
+    </div>
+
+    <div class="music__navigation">
+      <button class="prev action__button">
+        <i class="uil uil-step-backward"></i>
+      </button>
+      <button class="play action__button action__button--big">
+        <i class="uil uil-play"></i>
+      </button>
+      <button class="next action__button">
+        <i class="uil uil-skip-forward"></i>
+      </button>
+    </div>
+  </div>
+</body>
+</html>
