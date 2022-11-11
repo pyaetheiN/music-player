@@ -13,5 +13,74 @@ body{
   background-repeat: no-repeat;
   min-height: 100vh;
   color: rgb(230, 230, 230);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+img{
+  max-width: 100%;
+  display: block;
+}
+
+header{
+  margin-bottom: 1rem;
+}
+
+.music{
+
+  &__title{
+    font-size: 0.75em;
+  }
+
+  &__container{
+    display: flex;
+    align-items: flex-end;
+    gap: 0.5rem;
+    background-color: rgba(#13547a, 0.4); 
+    box-shadow: 0 5px 5px 1px rgba(#80d0c7, 0.3);
+    border-radius: 0.5rem;
+    position: relative;
+    margin-top: 6rem;
+    padding: 0.5rem;
+  }
+
+  &__img{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+
+    animation: rotate 3s linear infinite;
+
+    @keyframes rotate {
+      from{
+        transform: rotate(0deg);
+      }
+
+      to{
+        transform: rotate(360deg);
+      }
+    }
+
+    &--container{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      &::after{
+        content: '';
+        background-color: rgb(230, 230, 230);
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
 }
 
