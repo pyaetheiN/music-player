@@ -141,6 +141,6 @@ header {
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 1rem;
   height: inherit;
-  width: 30%;
+  width: 0%;
   transition: width 0.1s linear;
 }/*# sourceMappingURL=style.css.map */

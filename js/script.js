@@ -29,23 +29,75 @@ function playSong(){
   musicInfo.classList.add('active');
   musicContainer.classList.add('play');
   playBtn.querySelector('i').classList.replace('fa-play', 'fa-pause');
+  musicAudio.play();
 }
 
 function pauseSong(){
   musicInfo.classList.remove('active');
   musicContainer.classList.remove('play');
   playBtn.querySelector('i').classList.replace('fa-pause', 'fa-play');
+  musicAudio.pause();
+}
+
+function prevSong(){
+  songIndex--;
+
+  if(songIndex < 0){
+    songIndex = songs.length - 1;
+  }
+
+  loadSong(songs[songIndex]);
+
+  musicAudio.play();
+}
+
+function nextSong(){
+  songIndex++;
+
+  if(songIndex > songs.length - 1){
+    songIndex = 0;
+  }
+
+  loadSong(songs[songIndex]);
+
+  musicAudio.play();
+}
+
+function updateProgress(e){
+  // console.log(e.srcElement.currentTime);
+  // console.log(e.srcElement.duration);
+  // destructuring
+  const {currentTime, duration} = e.srcElement;
+  const progressElement = (currentTime / duration) * 100;
+  progressBar.style.width = `${progressElement}%`;
+}
+
+function setProgress(e){
+  const width = this.clientWidth;
+  const clickX = e.offsetX;
+  // console.log(width);
+  // console.log(clickX);
+  const duration = musicAudio.duration;
+
+  musicAudio.currentTime = (clickX / width) * duration;
+  // musicAudio.currentTime = clickX;
 }
 
 // event listeners
 playBtn.addEventListener('click', () => {
-  // const isPlaying = musicContainer.classList.contains('play');
-
-  // if(isPlaying){
-  //   pauseSong();
-  // } else{
-  //   playSong();
-  // }
-
-  const isPlaying = musicContainer.classList.contains('play') ? pauseSong() : playSong();
+  if(musicContainer.classList.contains('play')){
+    pauseSong();
+  } else{
+    playSong();
+  }
 })
+
+prevBtn.addEventListener('click', prevSong);
+
+nextBtn.addEventListener('click', nextSong);
+
+musicAudio.addEventListener('timeupdate', updateProgress);
+
+progressContainer.addEventListener('click', setProgress);
+
+musicAudio.addEventListener('ended', nextSong);
