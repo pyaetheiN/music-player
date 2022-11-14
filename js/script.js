@@ -79,7 +79,7 @@ function setProgress(e){
   // console.log(clickX);
   const duration = musicAudio.duration;
 
-  musicAudio.currentTime = (clickX / width) * duration;
+  musicAudio.currentTime = (clickX / width) * duration; // eg. (34 / 134) * 116 [gravechill]
   // musicAudio.currentTime = clickX;
 }
 
