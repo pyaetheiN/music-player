@@ -73,8 +73,8 @@ function updateProgress(e){
 }
 
 function setProgress(e){
-  const width = this.clientWidth;
-  const clickX = e.offsetX;
+  const width = this.clientWidth; // taking progressContainer width
+  const clickX = e.offsetX; // taking width of the target starting from it's padding
   // console.log(width);
   // console.log(clickX);
   const duration = musicAudio.duration;
